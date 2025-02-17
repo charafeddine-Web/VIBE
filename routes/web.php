@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DemandeAmitieController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,9 +23,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'), 'verified',
         return view('dashboard');
     })->name('dashboard');
 });
-use App\Http\Controllers\UserController;
 
-Route::post('/users/create', [UserController::class, 'CreateUser']);
-Route::put('/users/update', [UserController::class, 'UpdateUser'])->middleware('auth:sanctum');
 
+Route::post('/envoyer-demande-amitie/{utilisateur_recepteur_id}', [DemandeAmitieController::class, 'envoyerDemandeAmitie']);
 
