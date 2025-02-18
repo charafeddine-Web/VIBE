@@ -1,21 +1,35 @@
-<div class="p-6 lg:p-8 bg-white border-b border-gray-200">
+<div class="p-8 bg-gradient-to-r from-blue-500 to-indigo-600 text-black rounded-lg shadow-lg ">
+    <div class="flex justify-between items-center flex-wrap">
+        <!-- Message de bienvenue -->
+        <h1 class="text-3xl font-semibold mt-2 ml-4     ">
+            Welcome to your <span class="text-yellow-300">VIBE</span> application! 🚀
+        </h1>
 
-    <h1 class="mt-8 text-2xl font-medium text-gray-900">
-        Welcome to your VIBE application!
-    </h1>
-    <x-validation-errors class="mb-4" />
+        <!-- Affichage des erreurs -->
+        <x-validation-errors class="mb-4" />
+    </div>
 
-    <form method="POST" action="">
+    <!-- Formulaire de recherche -->
+    <form method="GET" action="{{ route('Search') }}" class="mt-6 flex flex-col sm:flex-row gap-4  ">
         @csrf
-        <div>
-            <x-label for="amis" value="{{ __('Add Amis') }}" />
-            <x-input id="amis" class="block mt-1 w-full" type="text" name="amis" :value="old('amis')" required autofocus autocomplete="amis" />
+        <div class="flex justify-between items-center gap-4 ml-4 mr-4">
+            <div class="relative w-full sm:w-2/3">
+                <x-input
+                        id="query"
+                        class="w-full p-3 rounded-lg text-gray-900 shadow-md focus:ring-2 focus:ring-yellow-400"
+                        type="text"
+                        name="query"
+                        placeholder="Rechercher quelque chose..."
+                        value="{{ request('query') }}"
+                        required
+                        autofocus
+                        autocomplete="query"
+                />
+            </div>
+            <x-button class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 py-2 rounded-lg transition-all">
+                🔎 Search
+            </x-button>
         </div>
 
     </form>
-
-</div>
-
-<div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
-
 </div>

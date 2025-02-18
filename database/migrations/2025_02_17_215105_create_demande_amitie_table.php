@@ -14,11 +14,11 @@ class CreateDemandeAmitieTable extends Migration
     public function up()
     {
         Schema::create('demande_amitie', function (Blueprint $table) {
-            $table->id();  // ID de la demande
+            $table->id();
             $table->foreignId('utilisateur_demandeur_id')->constrained('users')->onDelete('cascade'); // Utilisateur qui envoie la demande
             $table->foreignId('utilisateur_recepteur_id')->constrained('users')->onDelete('cascade'); // Utilisateur qui reçoit la demande
             $table->enum('statut', ['en attente', 'accepté', 'refusé'])->default('en attente'); // Statut de la demande
-            $table->timestamps(); // Date de création et de mise à jour
+            $table->timestamps();
         });
     }
 
