@@ -17,15 +17,16 @@ class DemandeAmitie extends Model
         'statut',
     ];
 
-    public function utilisateurDemandeur()
+    public function demandeur()
     {
         return $this->belongsTo(User::class, 'utilisateur_demandeur_id');
     }
 
-    public function utilisateurRecepteur()
+    public function receveur()
     {
         return $this->belongsTo(User::class, 'utilisateur_recepteur_id');
     }
+
 
     public function envoyer()
     {

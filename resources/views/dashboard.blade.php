@@ -4,7 +4,6 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
@@ -17,12 +16,16 @@
                                     <h2 class="text-lg font-semibold text-gray-900">{{ $user->pseudo }}</h2>
                                     <p class="text-sm text-gray-600">{{ $user->email }}</p>
                                 </div>
-                                <x-button>
-                                    Ajouter en ami
-                                </x-button>
+                                <form method="POST" action="{{ route('envoyerDemandeAmitie', $user->id) }}">
+                                    @csrf
+                                    <button type="submit" class="bg-indigo-500 text-white px-2 py-2 rounded-lg">
+                                        Ajouter en ami
+                                    </button>
+                                </form>
                             </div>
-                        @endforeach
                     </div>
+
+                    @endforeach
                     <div class="mt-6">
                         {{ $users->links() }}
                     </div>

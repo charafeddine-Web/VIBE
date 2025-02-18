@@ -4,9 +4,10 @@
         <h1 class="text-3xl font-semibold mt-2 ml-4     ">
             Welcome to your <span class="text-yellow-300">VIBE</span> application! 🚀
         </h1>
-
         <!-- Affichage des erreurs -->
         <x-validation-errors class="mb-4" />
+{{--        <x-validation-success class="mb-4" />--}}
+
     </div>
 
     <!-- Formulaire de recherche -->

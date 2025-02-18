@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 use App\Models\DemandeAmitie;
 use Illuminate\Http\Request;
-use App\Http\Controllers\DemandeAmitieController;
 use App\Models\User;
 
 
@@ -41,5 +40,20 @@ class UserController extends Controller
         $demande->utilisateur_recepteur_id = $utilisateur_recepteur_id;
         $demande->envoyer();
         return response()->json(['message' => 'Demande envoyée avec succès'], 200);
+    }
+
+    public function afficherDemandesAmitie(){
+
+        $utilisateur = auth()->user();
+
+        $demandesEnvoyees=DemandeAmitie::where('utilisateur_demandeur_id', $utilisateur->id)
+            ->with('demandeur')
+            ->get();
+
+        $demandesRecues=DemandeAmitie::where('utilisateur_recepteur_id', $utilisateur->id)
+            ->with('receveur')
+            ->get();
+
+        return view('amis', compact('demandesEnvoyees', 'demandesRecues'));
     }
 }
