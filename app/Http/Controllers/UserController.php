@@ -19,9 +19,8 @@ class UserController extends Controller
             ->orWhereRaw("LOWER(prenom) LIKE LOWER(?)", ["%$query%"])
             ->orWhereRaw("LOWER(name) LIKE LOWER(?)", ["%$query%"])
             ->simplePaginate(10);
-
         return view('dashboard', [
-            'users' => $users ?? collect(),
+            'users' => $users ,
             'message' => $users->isEmpty() ? 'Aucun utilisateur trouvé.' : null,
         ]);
     }
@@ -33,27 +32,20 @@ class UserController extends Controller
         if (DemandeAmitie::where('utilisateur_demandeur_id', $utilisateur_demandeur->id)
             ->where('utilisateur_recepteur_id', $utilisateur_recepteur_id)
             ->exists()) {
-            return response()->json(['message' => 'Demande déjà envoyée'], 400);
+            return view('dashboard', [
+                'message' =>  'Demande déjà envoyée.'
+            ]);
         }
         $demande = new DemandeAmitie();
         $demande->utilisateur_demandeur_id = $utilisateur_demandeur->id;
         $demande->utilisateur_recepteur_id = $utilisateur_recepteur_id;
         $demande->envoyer();
-        return response()->json(['message' => 'Demande envoyée avec succès'], 200);
+        return view('dashboard', [
+            'message' =>  'Demande envoyée avec succès.'
+        ]);
     }
 
-    public function afficherDemandesAmitie(){
 
-        $utilisateur = auth()->user();
 
-        $demandesEnvoyees=DemandeAmitie::where('utilisateur_demandeur_id', $utilisateur->id)
-            ->with('demandeur')
-            ->get();
 
-        $demandesRecues=DemandeAmitie::where('utilisateur_recepteur_id', $utilisateur->id)
-            ->with('receveur')
-            ->get();
-
-        return view('amis', compact('demandesEnvoyees', 'demandesRecues'));
-    }
 }

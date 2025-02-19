@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AmisController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,11 +23,12 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'), 'verified',
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/demandes', [UserController::class, 'afficherDemandesAmitie'])->name('afficherDemandesAmitie');
+    Route::get('/demandes', [AmisController::class, 'afficherDemandesAmitie'])->name('afficherDemandesAmitie');
     Route::post('/envoyer-demande-amitie/{utilisateur_recepteur_id}', [UserController::class, 'envoyerDemandeAmitie'])->name('envoyerDemandeAmitie');
     Route::get('/Search',[UserController::class,'Search'])->name('Search');
-    Route::post('/accepter-demande/{id}', [UserController::class, 'accepterDemandeAmitie'])->name('accepterDemandeAmitie');
-    Route::delete('/refuser-demande/{id}', [UserController::class, 'refuserDemandeAmitie'])->name('refuserDemandeAmitie');
+
+    Route::post('/accepter-demande/{id}', [AmisController::class, 'accepterDemandeAmitie'])->name('accepterDemandeAmitie');
+    Route::delete('/refuser-demande/{id}', [AmisController::class, 'refuserDemandeAmitie'])->name('refuserDemandeAmitie');
 
 });
 

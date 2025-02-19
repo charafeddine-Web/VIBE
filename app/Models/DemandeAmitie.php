@@ -21,7 +21,6 @@ class DemandeAmitie extends Model
     {
         return $this->belongsTo(User::class, 'utilisateur_demandeur_id');
     }
-
     public function receveur()
     {
         return $this->belongsTo(User::class, 'utilisateur_recepteur_id');
@@ -35,7 +34,7 @@ class DemandeAmitie extends Model
 
     public function accepter()
     {
-        $this->statut = 'accepté';
+        $this->statut='accepté';
         $this->save();
     }
 
