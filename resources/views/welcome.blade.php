@@ -18,9 +18,11 @@
     <body class="antialiased">
         <div class="">
 
-                <nav class="bg-indigo-400  sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10 w-full">
+                <nav class="bg-black  sm:fixed sm:top-0 sm:right-0 p-4 text-right z-10 w-full">
                     <div class="container mx-auto flex justify-between items-center">
-                        <a href="#" class="text-white text-xl font-semibold">VIBE</a>
+                        <a href="#" class="text-white text-xl font-semibold">
+                            <img src="{{asset('/images/VIBE_LOGO.png')}}" alt="logo" width="70" height="50"/>
+                        </a>
                         <div class="space-x-6">
                             @if (Route::has('login'))
                                 <div class="">
@@ -39,7 +41,7 @@
                     </div>
                 </nav>
 
-                <section id="home" class="bg-indigo-500 text-white text-center py-24">
+                <section id="home" class="bg-indigo-500 text-white text-center py-40">
                     <div class="container mx-auto">
                         <h1 class="text-4xl font-bold mb-4">Welcome to VIBE</h1>
                         <p class="text-xl mb-8">We provide amazing services to help you succeed.</p>
@@ -86,7 +88,7 @@
                 </section>
 
                 <!-- Footer -->
-                <footer class="bg-gray-900 text-white text-center py-4">
+                <footer class="bg-black text-white text-center py-4">
                     <p>&copy; 2025 My Website. All rights reserved.</p>
                 </footer>
         </div>

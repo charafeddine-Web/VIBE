@@ -7,7 +7,6 @@
         <!-- Affichage des erreurs -->
         <x-validation-errors class="mb-4" />
 {{--        <x-validation-success class="mb-4" />--}}
-
     </div>
 
     <!-- Formulaire de recherche -->
@@ -31,6 +30,5 @@
                 🔎 Search
             </x-button>
         </div>
-
     </form>
 </div>

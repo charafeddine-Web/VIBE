@@ -62,9 +62,9 @@
 
                                             </div>
                                             <div>
-                                                <h3 class="font-bold text-gray-800 text-lg">{{ $demande->demandeur->pseudo }}</h3>
+                                                <h3 class="font-bold text-gray-800 text-lg">{{ $demande->receveur->pseudo }}</h3>
                                                 <p class="text-sm font-medium text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400">
-                                                    @ {{ strtolower($demande->demandeur->name . $demande->demandeur->prenom) }}
+                                                    @ {{ strtolower($demande->receveur->name . $demande->receveur->prenom) }}
                                                 </p>
                                             </div>
                                         </div>
