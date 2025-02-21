@@ -51,8 +51,8 @@ class AmisController extends Controller
     }
 
     public  function showallamisaccepter(){
-        $user=auth()->user();
-        $amis = $user->amis();
+        $user = auth()->user();
+        $amis = $user->amis;
         return view('amis', compact('amis'));
     }
 
