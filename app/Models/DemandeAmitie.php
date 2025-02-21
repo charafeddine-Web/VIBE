@@ -31,6 +31,10 @@ class DemandeAmitie extends Model
     {
         $this->save();
     }
+    public function anuller()
+    {
+        $this->delete();
+    }
 
     public function accepter()
     {

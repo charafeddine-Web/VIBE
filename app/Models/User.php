@@ -62,4 +62,9 @@ class User extends Authenticatable  implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+//    public function amis(){
+//        return $this->belongsToMany(DemandeAmitie::class);
+//    }
+
 }

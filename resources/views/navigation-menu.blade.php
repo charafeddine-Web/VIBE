@@ -16,7 +16,10 @@
                         <i class="fas fa-tachometer-alt mr-2"></i> {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link href="{{ route('afficherDemandesAmitie') }}" :active="request()->routeIs('afficherDemandesAmitie')" class="text-black hover:text-indigo-100 transition-all duration-200">
-                        <i class="fas fa-users mr-2"></i> {{ __('Amis') }}
+                        <i class="fas fa-users mr-2"></i> {{ __('demande') }}
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('showallamis') }}" :active="request()->routeIs('showallamis')" class="text-black hover:text-indigo-100 transition-all duration-200">
+                        <i class="fas fa-users mr-2"></i> {{ __('List Amis') }}
                     </x-nav-link>
                 </div>
             </div>

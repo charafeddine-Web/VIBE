@@ -29,6 +29,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'), 'verified',
 
     Route::post('/accepter-demande/{id}', [AmisController::class, 'accepterDemandeAmitie'])->name('accepterDemandeAmitie');
     Route::delete('/refuser-demande/{id}', [AmisController::class, 'refuserDemandeAmitie'])->name('refuserDemandeAmitie');
+    Route::delete('/anuller-demande/{id}', [AmisController::class, 'AnnulerDemandeAmitie'])->name('AnnulerDemandeAmitie');
+    Route::get('/list-Amis', [AmisController::class, 'showallamisaccepter'])->name('showallamis');
 
 });
 
